@@ -5,7 +5,7 @@
 
 const { sum } = require("./code.js");
 
-describe("test functions", () => {
+describe("test functions sum", () => {
   it("sums 2 numbers", () => {
     expect(sum(1, 2)).toBe(3);
   });
