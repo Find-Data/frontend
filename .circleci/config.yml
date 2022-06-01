@@ -1,4 +1,7 @@
 version: 2.1
+orbs:
+  browser-tools: circleci/browser-tools@1.3.0
+
 executors:
   my-custom-executor:
     docker:
@@ -10,14 +13,21 @@ executors:
           password: $DOCKER_HUB_PASSWORD
 jobs:
   my-job-name:
-
     executor: my-custom-executor
     steps:
       - checkout
       - run: |
           # echo Hello, World!
-
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - browser-tools/install-browser-tools
 workflows:
   my-custom-workflow:
     jobs:
       - my-job-name
+      - example-job
+
+  
